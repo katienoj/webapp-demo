@@ -15,6 +15,7 @@ var db = require('./config/db');
 console.log("connecting--", db);
 mongoose.connect(db.url); //Mongoose connection created
 
+
 //Frontend Routes================
 app.get('/', (req, res)=>res.send('Welcome to the Mean Demo App!'));
 
@@ -39,7 +40,7 @@ app.get('/api/students', function(req, res){
     });
 });
 
-app.post('/api/students/send', function (req, res) {
+app.post('/api/students/send', function(req, res) {
     var student = new Student(); // create a new instance of the student model
     student.name = req.body.name; // set the student name (comes from the request)
     student.save(function(err) {
